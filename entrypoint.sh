@@ -18,6 +18,8 @@ while [ $count -le 6 ]
 do
     echo "Attempt to check service status...($count)"
 
+    echo "::debug::$command"
+
     commandStdout=$(sshpass ssh -v -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST "$command")
 
     if [ $commandStdout -eq '200' ]; then

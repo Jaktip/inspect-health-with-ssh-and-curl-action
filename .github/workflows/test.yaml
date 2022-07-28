@@ -13,14 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Execute sshpass
-        id: execute-sshpass-command
+        id: inspect-service-health
         uses: ./
         with:
           host: ${{ secrets.HOST}}
           username: ${{ secrets.USERNAME}}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY}}
-          module: ${{ secrets.MODULE}}
           module_port: ${{ secrets.MODULE_PORT}}
 
-      - name: Display Execut sshpass output
-        run: echo "${{ steps.execute-sshpass-command.outputs.command_execution_stdout }}"
+      - name: Display service health
+        run: echo "${{ steps.inspect-service-health.outputs.status }}"

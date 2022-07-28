@@ -1,3 +1,6 @@
+# inspect-health-with-ssh-and-curl-action
+Github action for inspecting service health for the service which doesn't expose HTTP/HTTPS. The SSH public authentication with the combination of health probe using actuator endpoint are leveraged.
+
 ## Usage
 
 ```yml
