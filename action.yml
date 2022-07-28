@@ -1,0 +1,32 @@
+name: "wsg-inspect-service-health-github-action"
+description: "Github action specifically built for WSG service health inspection"
+author: "Win"
+inputs:
+  host:
+    description: "SSHPASS host"
+    required: true
+  port:
+    description: "SSHPASS host"
+    default: 22
+  username:
+    description: "SSHPASS username"
+    required: true
+  module:
+    description: "Module to inspect the health"
+    required: true
+  ssh_private_key:
+    description: "private key to set up Public Key Authentication with SSH"
+    required: true
+outputs:
+  status:
+    description: "Status of service health. 0 indicates that service is up, 1 indicates the service unavailabilty"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    HOST: ${{ inputs.host }}
+    PORT: ${{ inputs.port }}
+    USERNAME: ${{ inputs.username }}
+    MODULE: ${{ inputs.module }}
+    SERVICE_PORT: ${{ inputs.module_port }}
+    SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
