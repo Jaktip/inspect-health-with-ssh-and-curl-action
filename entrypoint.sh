@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
+
+
+mkdir "/root/.ssh"
+echo "$SSH_PRIVATE_KEY" > "/root/.ssh/id_rsa"
+chmod 400  "/root/.ssh/id_rsa"
 
 command="curl -s -o /dev/null -w "%{response_code}" localhost:$SERVICE_PORT/actuator/health"
 
