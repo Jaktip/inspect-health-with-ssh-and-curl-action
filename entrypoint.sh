@@ -31,6 +31,6 @@ do
     sleep 5;
 done
 
-echo "::set-output name=command_execution_stdout::$status"
+echo "::set-output name=status::$status"
 
 exit 0
