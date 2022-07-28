@@ -18,10 +18,9 @@ jobs:
         with:
           host: ${{ secrets.HOST}}
           username: ${{ secrets.USERNAME}}
-          password: ${{ secrets.PASSWORD}}
-          command: ${{ secrets.BASH_FILE_PATH }} ${{ secrets.MODULE }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY}}
-          ssh_known_hosts: ${{ secrets.SSH_KNOWN_HOSTS}}
+          module: ${{ secrets.MODULE}}
+          module_port: ${{ secrets.MODULE_PORT}}
 
       - name: Display Execut sshpass output
         run: echo "${{ steps.execute-sshpass-command.outputs.command_execution_stdout }}"
